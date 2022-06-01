@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Talk Spring To Me</title>
+	<link rel="stylesheet" th:href="@{/style.css}" />
+	<script lang="javascript" th:src="@{/nlu/speech.js}"></script>
+	<script>
+		const hearHandler = (heard) => {
+			let b = document.querySelector('.transcript');
+			b.innerHTML += "<p><b>You: </b>" + heard + "</p>";
+			b.scrollTop = b.scrollHeight;
+		};
+
+		const onRecognizeHandler = (data) => {
+			Speech.speak(data.handlerResponse.textToSpeak);
+			let b = document.querySelector('.transcript');
+			b.innerHTML += "<p><b>Spring:</b> " + data.handlerResponse.textToSpeak + "</p>";
+			b.scrollTop = b.scrollHeight;
+		};
+
+		const initUIEvents = () => {
+			let b = document.querySelector('.listen');
+			b.addEventListener('mousedown', Speech.listen);
+			b.addEventListener('mouseup', Speech.stopListening);
+			Speech.initSpeechRecognition(hearHandler, onRecognizeHandler);
+		}
+		window.addEventListener('load', initUIEvents);
+	</script>
+</head>
+
+<body>
+	<h1>Talk Spring to Me</h1>
+	
+	<img class="listen" th:src="@{/mic.png}"></img>
+
+	<h3>Transcript:</h3>
+	<div class="transcript"></div>
+</body>
+
+</html>

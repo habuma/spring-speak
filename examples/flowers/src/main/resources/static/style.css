@@ -1,0 +1,12 @@
+body {
+	background-color: #000033;
+	color: white;
+	font-family: sans-serif;
+}
+div.transcript {
+	background-color: white;
+	color: black;
+	width: 500px;
+	height: 300px;	
+	overflow-y: scroll;	
+}
