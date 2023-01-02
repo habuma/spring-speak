@@ -1,0 +1,28 @@
+This example shows how to use Spring Speak against the Amazon Lex
+OrderFlowers blueprint.
+
+Follow these steps to run the application:
+
+ 1. Start by following the instructions at 
+    https://docs.aws.amazon.com/lex/latest/dg/gs-bp.html, to create the 
+    OrderFlowers bot. 
+ 2. Note the bot ID and bot alias ID.
+ 3. Edit src/main/resources/application.yml, replacing "<< See README >>"
+    values with your values for AWS access and bot ID values.
+ 4. Run the application: `./mvnw spring-boot:run`
+ 5. Open your browser(*) to https://localhost:8080
+ 6. To speak to the application, click and hold the microphone button while 
+    speaking a query.
+    - Try "hello", "hi", "howdy" or some other greeting to get a hello 
+      response.
+    - Try "I would like to order some flowers" to start a flower order.
+    - Try "I want to order some tulips" to start the flower order with a 
+      specific flower.
+ 7. Alternatively, type the query into the text box and click submit.
+ 8. If all goes well, the query and response should be shown in the 
+    transcript and the response should be spoken.
+
+
+(*) Not all browsers have equal support for speech recognition and speech. 
+    Speech recognition should work in Chrome, Edge, Opera, or Safari (and 
+    most browsers), but at this time it does not work in Firefox.
