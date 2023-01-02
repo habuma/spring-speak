@@ -19,12 +19,24 @@
 			b.scrollTop = b.scrollHeight;
 		};
 
+		const submitTypedText = (event) => {
+			let typedTextInput = document.querySelector('#typed');
+			let typedText = typedTextInput.value;
+			hearHandler(typedText);
+			Speech.postText(typedText, 1);
+			typedTextInput.value = '';
+			return false;
+		};
+
 		const initUIEvents = () => {
 			let b = document.querySelector('.listen');
 			b.addEventListener('mousedown', Speech.listen);
 			b.addEventListener('mouseup', Speech.stopListening);
+			let t = document.querySelector('#typedTextSubmit');
+			t.addEventListener('click', submitTypedText);
 			Speech.initSpeechRecognition(hearHandler, onRecognizeHandler);
-		}
+		};
+				
 		window.addEventListener('load', initUIEvents);
 	</script>
 </head>
@@ -32,7 +44,16 @@
 <body>
 	<h1>Talk Spring to Me</h1>
 	
+	<p><i>Hold down the microphone button and speak your query...</i></p>
+
 	<img class="listen" th:src="@{/mic.png}"></img>
+	
+	<p><i>...or type it instead of saying it:</i></p>
+	
+	<input type="text" name="typed" id="typed" style="width: 400px;" />
+	<button id="typedTextSubmit">Submit</button>
+	
+	<br/>
 
 	<h3>Transcript:</h3>
 	<div class="transcript"></div>

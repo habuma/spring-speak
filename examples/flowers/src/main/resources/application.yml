@@ -1,5 +1,5 @@
 lex:
-  awsAccessKey: TBD
-  awsSecretAccessKey: TBD
-  botId: TBD
-  botAliasId: TBD
+  awsAccessKey: << See README >>
+  awsSecretAccessKey: << See README >>
+  botId: << See README >>
+  botAliasId: << See README >>

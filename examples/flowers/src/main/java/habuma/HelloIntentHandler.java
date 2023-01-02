@@ -15,6 +15,6 @@ public class HelloIntentHandler implements IntentHandler {
 	
 	@Override
 	public HandlerResponse handle(RecognizedText recognizedText) {
-		return new HandlerResponse("Hello, my friend!");
+		return new HandlerResponse("Hello world!");
 	}
 }
